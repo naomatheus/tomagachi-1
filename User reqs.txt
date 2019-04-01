@@ -1,21 +1,21 @@
-Create a repo for your tomagotchi pet
+<!-- Create a repo for your tomagotchi pet
 done
 
 make a commit after you finish each one of the following
 done 1st,
+ -->
+<!-- Style the page. -->
 
-Style the page.
+<!-- Create a Class (JS Class, look at your notes if your forget) for your tomagotchi -->
 
-Create a Class (JS Class, look at your notes if your forget) for your tomagotchi
-
-class specs:
+<!-- class specs:
 Add the ability to name your pet.
 Hunger (1-10 scale)
 Sleepiness (1-10 scale)
 Boredom (1-10 scale)
-Age
+Age -->
 
-Instatiate your Tomagotchi
+<!-- Instatiate your Tomagotchi -->
 
 Display a character of your choice on the screen to represent your pet
 
