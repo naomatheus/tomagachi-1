@@ -4,7 +4,16 @@ done
 make a commit after you finish each one of the following
 done 1st,
 
+Style the page.
+
 Create a Class (JS Class, look at your notes if your forget) for your tomagotchi
+
+class specs:
+Add the ability to name your pet.
+Hunger (1-10 scale)
+Sleepiness (1-10 scale)
+Boredom (1-10 scale)
+Age
 
 Instatiate your Tomagotchi
 
@@ -17,9 +26,9 @@ Boredom (1-10 scale)
 Age
 Add buttons to the screen to feed your pet, turn off the lights, and play with your pet.
 Add the ability to name your pet.
-Add the ability to name your pet for 
+Add the ability to name your pet from user input
 
-Style the page.
+
 
 Increase your pet's age every x minutes
 Increase your pet's Hunger, Sleepiness, and Bored metrics on an interval of your choosing.

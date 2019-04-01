@@ -1,3 +1,31 @@
-h1 {
+body {
+	background-color: rgba(11,41,199, .60);
+}
+
+h1, h2 {
 	font-family: helvetica;
 }
+
+.tamastats {
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.container {
+	/*display: flex;*/
+	height: 500px;
+	width: 500px;
+}
+
+.user-buttons {
+	display: flex;
+	flex-direction: column;
+	height: 40%;
+	width: 15%;
+	justify-content: space-around;
+}
+
+/*//button styles/////*/
+
