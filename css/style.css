@@ -20,6 +20,7 @@ h1, h2 {
 	/*display: flex;*/
 	height: 500px;
 	width: 500px;
+	background-color: green;
 	/*background-image: url('https://images.homedepot-static.com/productImages/fc3aa439-bd65-46bc-aba8-ece3fa3c4c23/svn/magnolia-home-by-joanna-gaines-wallpaper-me1515-64_400_compressed.jpg')*/
 	/*make transparent with https://css-tricks.com/snippets/css/transparent-background-images/*/
 }

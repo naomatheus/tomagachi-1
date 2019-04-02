@@ -82,6 +82,8 @@ $('form').on('submit', (e) => {
 	console.log(tamaNameValue);
 	const $h2 = $('h2')
 	$h2.text(`${tamaNameValue}`)
+	$('form').css('display','none')
+
 
 	// run start game to instantiate the tamagotchi object
 	game.startGame();
