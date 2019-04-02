@@ -5,10 +5,10 @@ class Tamagotchi {
 	constructor(name){
 		this.name = name;
 		this.hunger = 5;
-		this.sleepiness = 1;
-		this.boredom = 1;
-		this.age = 0;
-		this.lifestage = 0;
+		this.sleepiness = 100;
+		this.boredom = 1000;
+		this.age = 1000;
+		this.lifestage = 1000;
 	}
 	sleep(){
 		console.log('sleepiness going down');
@@ -44,6 +44,31 @@ const game = {
 	},
 	character: this.character
 	,
+	displayStats() {
+	// the hunger statistic
+		$hunger = $('#hunger')
+		console.log($hunger);
+		$hunger.text(`${this.character.hunger}`)
+	// the sleep statistic	
+		$sleepiness = $('#sleepiness')
+		console.log($sleepiness);
+		$sleepiness.text(`${this.character.sleepiness}`)
+
+	// the boredom statistic
+		$boredom = $('#boredom')
+		console.log($boredom);
+		$boredom.text(`${this.character.boredom}`)
+
+	// the age statistic
+		$age = $('#age')
+		console.log($age);
+		$age.text(`${this.character.age}`)
+
+	// the lifestage statistic
+		$lifestage = $('#lifestage')
+		console.log($lifestage);
+		$lifestage.text(`${this.character.lifestage}`)
+	},
 	deathMethod (){
 
 	},
@@ -55,7 +80,7 @@ const game = {
 
 			const $timer = $('#timer')
 			$timer.text(`${this.time}`)
-			console.log(this);
+			// console.log(this);
 
 			if (this.time === 20){
 
@@ -88,39 +113,37 @@ $('form').on('submit', (e) => {
 	// run start game to instantiate the tamagotchi object
 	game.startGame();
 	game.startTimer();
+	game.displayStats();
 	// check if the game.character tamagotchi can be accessed
 	console.log(game.character);
 })
 
 
 
-////// ISSUE WITH STATS			
-/// maybe the tamagotchi metrics stats get displayed after the tamagotchi is instantiated. The display gets changed by display: none or something
-
-// const $hunger = $('#hunger')
-// console.log($hunger);
-// $hunger.text(`${game.character.tamagotchi.hunger}`)
+////// RESOLVED ISSUE WITH STATS			
+// the tamagotchi metrics stats get displayed after the tamagotchi is instantiated. The display gets changed by jquerying
 
 
-// const $sleepiness = $('#sleepiness')
-// console.log($sleepiness);
-// $sleepiness.text(`${tamagotchi.sleepiness}`)
+		let $hunger = $('#hunger')
+		console.log($hunger);
+		$hunger.text(`0`)
 
-// const $boredom = $('#boredom')
-// console.log($boredom);
-// $boredom.text(`${tamagotchi.boredom}`)
+		let $sleepiness = $('#sleepiness')
+		console.log($sleepiness);
+		$sleepiness.text('0')
 
-// const $age = $('#age')
-// console.log($age);
-// $age.text(`${tamagotchi.age}`)
 
-// const $lifestage = $('#lifestage')
-// console.log($lifestage);
-// $lifestage.text(`${tamagotchi.lifestage}`)
+		let $boredom = $('#boredom')
+		console.log($boredom);
+		$boredom.text('0')
 
-// const $h2 = $('h2')
-// console.log($h2);
-// $h2.text(`${tamagotchi.name}`)
+		let $age = $('#age')
+		console.log($age);
+		$age.text('0');
+
+		let $lifestage = $('#lifestage');
+		console.log($lifestage);
+		$lifestage.text('0')
 
 
 ////// PLAYER ACTIONS
@@ -144,12 +167,6 @@ $play.on('click', () => {
 	console.log('playing with tama');
 
 })
-
-// const $start = $('#start')
-// $start.on('click', () => {
-// 	console.log('start button clicked')
-
-// })
 
 /// Eventual start handler will run startGame();
 
