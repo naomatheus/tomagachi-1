@@ -21,57 +21,81 @@ class Tamagotchi {
 	}
 }
 
-const tamagotchi = new Tamagotchi('Iko-kun');
-console.log(tamagotchi);
 
 
-const tamaArray = []; /*is an array of objects containing tamagotchi details*/
 
-tamaArray.push(tamagotchi)
 
 const game = {
 	time: 0,
 	startGame(){
+			
+			
+			const tamagotchi = new Tamagotchi('Iko-kun');
+			console.log(tamagotchi);
+			// will insert name into tamagotchi.name (this.name).
+				
+				// (submit).val() // set up the submit form here...
+
+			// tamagotchi.name = tamaName
+
 			// will start the timer(s).
+				console.log('starting Tama');
+			logstat(tamagotchi);
 	},
 	deathMethod (){
 
 	},
 	updateStats() {
 		// will initialize the stats including time
-	}
+	} // have one  let time be = setInterval(){
+		// timer ++
+		// if ________
+		// if ________ as a property of game object
+		// 1000 ms,
 }
 
 /*EVENT HANDLERS AND LISTENERS*/
 
-// how to get event listeners to change values universally for the current tamagatchi that the user chose...
+// how to get event listeners to change values universally for the current tamagotchi that the user chose...
 
 /// TAMA STATS that are displayed
 
-const $hunger = $('#hunger')
-console.log($hunger);
-$hunger.text(`${tamagotchi.hunger}`)
-console.log(tamagotchi.hunger);
+$('form').on('submit', (e) => {
+	e.preventDefault();
+	const tamaNameValue = $('#tamaname').val();
+	console.log(tamaNameValue);
+	const $h2 = $('h2')
+	$h2.text(`${tamaNameValue}`)
+	game.startGame();
 
-const $sleepiness = $('#sleepiness')
-console.log($sleepiness);
-$sleepiness.text(`${tamagotchi.sleepiness}`)
+})
 
-const $boredom = $('#boredom')
-console.log($boredom);
-$boredom.text(`${tamagotchi.boredom}`)
+////// ISSUE WITH STATS				
+// logstat(game.tamagotchi)
+// const $hunger = $('#hunger')
+// console.log($hunger);
+// $hunger.text(`${game.tamagotchi.hunger}`)
 
-const $age = $('#age')
-console.log($age);
-$age.text(`${tamagotchi.age}`)
 
-const $lifestage = $('#lifestage')
-console.log($lifestage);
-$lifestage.text(`${tamagotchi.lifestage}`)
+// const $sleepiness = $('#sleepiness')
+// console.log($sleepiness);
+// $sleepiness.text(`${tamagotchi.sleepiness}`)
 
-const $h2 = $('h2')
-console.log($h2);
-$h2.text(`${tamagotchi.name}`)
+// const $boredom = $('#boredom')
+// console.log($boredom);
+// $boredom.text(`${tamagotchi.boredom}`)
+
+// const $age = $('#age')
+// console.log($age);
+// $age.text(`${tamagotchi.age}`)
+
+// const $lifestage = $('#lifestage')
+// console.log($lifestage);
+// $lifestage.text(`${tamagotchi.lifestage}`)
+
+// const $h2 = $('h2')
+// console.log($h2);
+// $h2.text(`${tamagotchi.name}`)
 
 
 ////// PLAYER ACTIONS
@@ -90,6 +114,13 @@ $light.on('click', () => {
 const $play = $('#play')
 $play.on('click', () => {
 	console.log('playing with tama');
+
+})
+
+const $start = $('#start')
+$start.on('click', () => {
+	console.log('start button clicked')
+	game.startGame();
 
 })
 
