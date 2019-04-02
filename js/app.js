@@ -5,10 +5,10 @@ class Tamagotchi {
 	constructor(name){
 		this.name = name;
 		this.hunger = 5;
-		this.sleepiness = 100;
-		this.boredom = 1000;
-		this.age = 1000;
-		this.lifestage = 1000;
+		this.sleepiness = 1;
+		this.boredom = 1;
+		this.age = 0;
+		this.lifestage = 0;
 	}
 	sleep(){
 		console.log('sleepiness going down');
@@ -20,10 +20,6 @@ class Tamagotchi {
 		console.log('boredom going down');
 	}
 }
-
-
-
-
 
 const game = {
 	time: 0,
@@ -47,26 +43,26 @@ const game = {
 	displayStats() {
 	// the hunger statistic
 		$hunger = $('#hunger')
-		console.log($hunger);
+		// console.log($hunger);
 		$hunger.text(`${this.character.hunger}`)
 	// the sleep statistic	
 		$sleepiness = $('#sleepiness')
-		console.log($sleepiness);
+		// console.log($sleepiness);
 		$sleepiness.text(`${this.character.sleepiness}`)
 
 	// the boredom statistic
 		$boredom = $('#boredom')
-		console.log($boredom);
+		// console.log($boredom);
 		$boredom.text(`${this.character.boredom}`)
 
 	// the age statistic
 		$age = $('#age')
-		console.log($age);
+		// console.log($age);
 		$age.text(`${this.character.age}`)
 
 	// the lifestage statistic
 		$lifestage = $('#lifestage')
-		console.log($lifestage);
+		// console.log($lifestage);
 		$lifestage.text(`${this.character.lifestage}`)
 	},
 	deathMethod (){
@@ -82,9 +78,26 @@ const game = {
 			$timer.text(`${this.time}`)
 			// console.log(this);
 
-			if (this.time === 20){
-
+			if (this.time > 10){
+				this.character.hunger++
+				game.displayStats();
 			}
+			if (this.time > 10){
+				this.character.sleepiness++
+				game.displayStats()
+			}
+			if (this.time > 10){
+				this.character.boredom++
+			}
+			if (this.time > 10){
+				this.character.age++
+				game.displayStats();
+			}
+			if (this.time > 10){
+				this.character.lifestage++
+				game.displayStats();
+			}
+			
 		}, 1000)
 		// will initialize the stats including time
 	} // have one  let time be = setInterval(){
