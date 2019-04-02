@@ -32,20 +32,35 @@ const game = {
 			
 			const tamagotchi = new Tamagotchi('Iko-kun');
 			console.log(tamagotchi);
+			game.character = tamagotchi
 			// will insert name into tamagotchi.name (this.name).
 				
-				// (submit).val() // set up the submit form here...
+			// (submit).val() // set up the submit form here...
 
 			// tamagotchi.name = tamaName
 
 			// will start the timer(s).
 				console.log('starting Tama');
-			logstat(tamagotchi);
 	},
+	character: this.character
+	,
 	deathMethod (){
 
 	},
-	updateStats() {
+	startTimer() {
+		console.log('this.startTimer called')
+		this.time = setInterval(() => {
+			console.log('time started');
+			this.time++;
+
+			const $timer = $('#timer')
+			$timer.text(`${this.time}`)
+			console.log(this);
+
+			if (this.time === 20){
+
+			}
+		}, 1000)
 		// will initialize the stats including time
 	} // have one  let time be = setInterval(){
 		// timer ++
@@ -61,20 +76,28 @@ const game = {
 /// TAMA STATS that are displayed
 
 $('form').on('submit', (e) => {
+	/// pull the name from the form
 	e.preventDefault();
 	const tamaNameValue = $('#tamaname').val();
 	console.log(tamaNameValue);
 	const $h2 = $('h2')
 	$h2.text(`${tamaNameValue}`)
-	game.startGame();
 
+	// run start game to instantiate the tamagotchi object
+	game.startGame();
+	game.startTimer();
+	// check if the game.character tamagotchi can be accessed
+	console.log(game.character);
 })
 
-////// ISSUE WITH STATS				
-// logstat(game.tamagotchi)
+
+
+////// ISSUE WITH STATS			
+/// maybe the tamagotchi metrics stats get displayed after the tamagotchi is instantiated. The display gets changed by display: none or something
+
 // const $hunger = $('#hunger')
 // console.log($hunger);
-// $hunger.text(`${game.tamagotchi.hunger}`)
+// $hunger.text(`${game.character.tamagotchi.hunger}`)
 
 
 // const $sleepiness = $('#sleepiness')
@@ -100,6 +123,9 @@ $('form').on('submit', (e) => {
 
 ////// PLAYER ACTIONS
 
+// also logs time
+
+
 const $feed = $('#feed')
 $feed.on('click', () => {
 	console.log('feed button clicked');
@@ -117,12 +143,11 @@ $play.on('click', () => {
 
 })
 
-const $start = $('#start')
-$start.on('click', () => {
-	console.log('start button clicked')
-	game.startGame();
+// const $start = $('#start')
+// $start.on('click', () => {
+// 	console.log('start button clicked')
 
-})
+// })
 
 /// Eventual start handler will run startGame();
 
