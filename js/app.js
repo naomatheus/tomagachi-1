@@ -23,8 +23,8 @@ class Tamagotchi {
 
 const game = {
 	time: 0,
+	lighton: true,
 	startGame(){
-			
 			
 			const tamagotchi = new Tamagotchi('Iko-kun');
 			console.log(tamagotchi);
@@ -66,7 +66,8 @@ const game = {
 		$lifestage.text(`${this.character.lifestage}`)
 	},
 	deathMethod (){
-
+		console.log('Tamagotchi is dead!!!');
+		clearInterval(this.time)
 	},
 	startTimer() {
 		console.log('this.startTimer called')
@@ -81,13 +82,22 @@ const game = {
 			if (this.time > 10){
 				this.character.hunger++
 				game.displayStats();
+				if (this.character.hunger > 10){
+					this.deathMethod();
+				}
 			}
 			if (this.time > 10){
 				this.character.sleepiness++
 				game.displayStats()
+				if(this.character.sleepiness > 10){
+					this.deathMethod();
+				}
 			}
 			if (this.time > 10){
 				this.character.boredom++
+				if (this.character.boredom > 10){
+					this.deathMethod();
+				}
 			}
 			if (this.time > 10){
 				this.character.age++
@@ -100,18 +110,41 @@ const game = {
 			
 		}, 1000)
 		// will initialize the stats including time
-	} // have one  let time be = setInterval(){
+	 // have one  let time be = setInterval(){
 		// timer ++
 		// if ________
 		// if ________ as a property of game object
 		// 1000 ms,
+	}, 
+	// think about how to make this more DRY (one method that calls multiple decrements on call);
+	decrementHunger() {/*controls players ability to decrease negative stats (feed the creature, etc)*/ 
+		this.character.hunger--
+		
+	},
+	decrementSleepiness(){
+		
+		this.character.sleepiness--
+		// if (game.lighton === false){
+		// 	this.character.sleepiness--
+		// } else if (game.lighton === true){
+
+		// } 
+		// while the light is off...decrement sleepiness by 1
+
+		// how to track if the light is off or not...
+
+		// I think there needs to be a Light off state
+			// if the light off state is true, then decrementSleepiness
+		// perhaps even a depressed button status for the light off button...
+	},
+	decrementBoredom(){
+		this.character.boredom--
+	}
+
 }
 
 /*EVENT HANDLERS AND LISTENERS*/
 
-// how to get event listeners to change values universally for the current tamagotchi that the user chose...
-
-/// TAMA STATS that are displayed
 
 $('form').on('submit', (e) => {
 	/// pull the name from the form
@@ -125,7 +158,9 @@ $('form').on('submit', (e) => {
 
 	// run start game to instantiate the tamagotchi object
 	game.startGame();
+	// run starting the time
 	game.startTimer();
+	// initialize the dynamic stats displays
 	game.displayStats();
 	// check if the game.character tamagotchi can be accessed
 	console.log(game.character);
@@ -136,7 +171,7 @@ $('form').on('submit', (e) => {
 ////// RESOLVED ISSUE WITH STATS			
 // the tamagotchi metrics stats get displayed after the tamagotchi is instantiated. The display gets changed by jquerying
 
-
+/// STATIC STATS ////
 		let $hunger = $('#hunger')
 		console.log($hunger);
 		$hunger.text(`0`)
@@ -157,26 +192,57 @@ $('form').on('submit', (e) => {
 		let $lifestage = $('#lifestage');
 		console.log($lifestage);
 		$lifestage.text('0')
-
+/// STATIC STATS ////
 
 ////// PLAYER ACTIONS
 
-// also logs time
-
-
 const $feed = $('#feed')
 $feed.on('click', () => {
-	console.log('feed button clicked');
 
+	console.log('feed button clicked');
+	game.decrementHunger();
+	game.displayStats();
 })
 
 const $light = $('#light')
 $light.on('click', () => {
-	console.log('lights turn off or on');
+
+	
+
+
+/// LATER implementation of light functionality
+	if (game.lighton === true){
+		const $container = $('.container')
+		$container.css('background-color', 'black')
+		const $timer = $('#timer')
+		$timer.css('color','white')
+		game.lighton = false;
+	}
+	else if (game.lighton === false ){
+		const $container = $('.container')
+		$container.css('background-color','green')
+		const $timer = $('#timer')
+		$timer.css('color','black')
+		game.lighton = true;
+	}	// stop timer
+		// console.log('light turned off');
+		// game.lighton = false
+		// clearInterval(this.time)
+	// 	return
+	// } else if (game.lighton === false){
+	// 	// begin timer
+	// 	game.lighton = true
+	// 	console.log('light turned on');
+	// 	// game.startTimer();
+	
+
+	
 })
 
 const $play = $('#play')
 $play.on('click', () => {
+	game.decrementBoredom();
+	game.displayStats();
 	console.log('playing with tama');
 
 })
