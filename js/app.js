@@ -162,12 +162,14 @@ const game = {
 	}, 
 	// think about how to make this more DRY (one method that calls multiple decrements on call);
 	decrementHunger() {/*controls players ability to decrease negative stats (feed the creature, etc)*/ 
+		if (this.character.hunger !== 0){
 		this.character.hunger--
-		
+		}
 	},
 	decrementSleepiness(){
-		
+		if (this.character.sleepiness){
 		this.character.sleepiness--
+		}
 		// if (game.lighton === false){
 		// 	this.character.sleepiness--
 		// } else if (game.lighton === true){
@@ -182,7 +184,9 @@ const game = {
 		// perhaps even a depressed button status for the light off button...
 	},
 	decrementBoredom(){
+		if (this.character.boredom !== 0){
 		this.character.boredom--
+		}
 	}
 
 }
