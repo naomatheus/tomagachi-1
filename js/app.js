@@ -100,8 +100,12 @@ const game = {
 			const $tamabody = $('#tamabody') 
 			$tamabody.prop('src','https://github.com/naomatheus/tomagachi-1/blob/master/tamadead.gif?raw=true')
 			clearInterval(this.timer)
+			// add here a remove all imagery command
+			// add here a new div that covers up the entire container. 
 		}
 	},
+
+	// ,
 	startTimer() {
 		console.log('this.startTimer called')
 		this.timer = setInterval(() => {
@@ -114,7 +118,7 @@ const game = {
 			// console.log(this);
 
 			if (this.time % 10 === 0){
-				// this.character.hunger++
+				this.character.hunger++
 				game.displayStats();
 				if (this.character.hunger === 10){
 					this.deathMethod();
@@ -122,7 +126,7 @@ const game = {
 				}
 			}
 			if (this.time % 10 === 0){
-				// this.character.sleepiness++
+				this.character.sleepiness++
 				game.displayStats()
 				if(this.character.sleepiness > 10){
 					this.deathMethod();
@@ -130,7 +134,7 @@ const game = {
 				}
 			}
 			if (this.time % 10 === 0){
-				// this.character.boredom++
+				this.character.boredom++
 				if (this.character.boredom > 10){
 					this.deathMethod();
 					// return
@@ -148,7 +152,7 @@ const game = {
 			this.time++;
 			game.ageTama();
 			
-		}, 100)
+		}, 1000)
 		// will initialize the stats including time
 	 // have one  let time be = setInterval(){
 		// timer ++
