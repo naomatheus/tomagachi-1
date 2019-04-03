@@ -28,11 +28,12 @@ const game = {
 	timer: null,
 	lighton: true,
 	isAlive: true,
+	character: null,
 	startGame(){
 			
 			const tamagotchi = new Tamagotchi('Iko-kun');
 			console.log(tamagotchi);
-			game.character = tamagotchi
+			this.character = tamagotchi
 			// will insert name into tamagotchi.name (this.name).
 				
 			// (submit).val() // set up the submit form here...
@@ -42,23 +43,25 @@ const game = {
 			// will start the timer(s).
 				console.log('starting Tama');
 	},
-	character: this.character
-	,
-	ageTama () { // logic should be redone here.
-		if (this.age > 3 /*=== 0*/){ 
-				const $tamabody = $('#tamabody') 
+	ageTama () { /*debugger;*/ // logic should be redone here. 
+		console.log("ageTama");
+		if (this.character.age === 3 /*=== 0*/){ 
+			console.log("3");
+			const $tamabody = $('#tamabody') 
 			$tamabody.prop('src','https://github.com/naomatheus/tomagachi-1/blob/master/tamause2.gif?raw=true')
-				game.displayStats();
-			 if (this.age > 5 /*=== 0*/){
-				const $tamabody = $('#tamabody') 
+			this.displayStats();
+		}
+		 if (this.character.age === 5 /*=== 0*/){
+		 	console.log("5");
+			const $tamabody = $('#tamabody') 
 			$tamabody.prop('src','https://github.com/naomatheus/tomagachi-1/blob/master/tamause3.gif?raw=true')
-				game.displayStats();
-			}
-			if (this.age > 7 /*=== 0*/ ){
-				const $tamabody = $('#tamabody') 
+			this.displayStats();
+		}
+		if (this.character.age === 7 /*=== 0*/ ){
+			console.log("7");
+			const $tamabody = $('#tamabody') 
 			$tamabody.prop('src','https://github.com/naomatheus/tomagachi-1/blob/master/tamause4.gif?raw=true')
-				game.displayStats();
-			}
+			this.displayStats();
 		}	
 	},
 	displayStats() {
@@ -111,7 +114,7 @@ const game = {
 			// console.log(this);
 
 			if (this.time % 10 === 0){
-				this.character.hunger++
+				// this.character.hunger++
 				game.displayStats();
 				if (this.character.hunger === 10){
 					this.deathMethod();
@@ -119,7 +122,7 @@ const game = {
 				}
 			}
 			if (this.time % 10 === 0){
-				this.character.sleepiness++
+				// this.character.sleepiness++
 				game.displayStats()
 				if(this.character.sleepiness > 10){
 					this.deathMethod();
@@ -127,7 +130,7 @@ const game = {
 				}
 			}
 			if (this.time % 10 === 0){
-				this.character.boredom++
+				// this.character.boredom++
 				if (this.character.boredom > 10){
 					this.deathMethod();
 					// return
@@ -136,7 +139,7 @@ const game = {
 			if (this.time % 10 === 0){
 				this.character.age++
 				game.displayStats();
-				game.ageTama();
+				// game.ageTama();
 			}
 			if (this.time % 10 === 0){
 				this.character.lifestage++
