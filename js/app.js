@@ -44,6 +44,23 @@ const game = {
 	},
 	character: this.character
 	,
+	ageTama () { // logic should be redone here.
+		if (this.age > 3 /*=== 0*/){ 
+				const $tamabody = $('#tamabody') 
+			$tamabody.prop('src','https://github.com/naomatheus/tomagachi-1/blob/master/tamause2.gif?raw=true')
+				game.displayStats();
+			 if (this.age > 5 /*=== 0*/){
+				const $tamabody = $('#tamabody') 
+			$tamabody.prop('src','https://github.com/naomatheus/tomagachi-1/blob/master/tamause3.gif?raw=true')
+				game.displayStats();
+			}
+			if (this.age > 7 /*=== 0*/ ){
+				const $tamabody = $('#tamabody') 
+			$tamabody.prop('src','https://github.com/naomatheus/tomagachi-1/blob/master/tamause4.gif?raw=true')
+				game.displayStats();
+			}
+		}	
+	},
 	displayStats() {
 	// the hunger statistic
 		$hunger = $('#hunger')
@@ -76,8 +93,11 @@ const game = {
 
 	},
 	stopTimer() {
-		if(!this.isAlive)
+		if(!this.isAlive){
+			const $tamabody = $('#tamabody') 
+			$tamabody.prop('src','https://github.com/naomatheus/tomagachi-1/blob/master/tamadead.gif?raw=true')
 			clearInterval(this.timer)
+		}
 	},
 	startTimer() {
 		console.log('this.startTimer called')
@@ -116,12 +136,14 @@ const game = {
 			if (this.time % 10 === 0){
 				this.character.age++
 				game.displayStats();
+				game.ageTama();
 			}
 			if (this.time % 10 === 0){
 				this.character.lifestage++
 				game.displayStats();
 			}
 			this.time++;
+			game.ageTama();
 			
 		}, 100)
 		// will initialize the stats including time
@@ -238,6 +260,8 @@ $light.on('click', () => {
 		$container.css('background-color','green')
 		const $timer = $('#timer')
 		$timer.css('color','black')
+		game.decrementSleepiness();
+		game.displayStats();
 		game.lighton = true;
 	}	// stop timer
 		// console.log('light turned off');

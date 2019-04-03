@@ -3,14 +3,16 @@ body {
 	font-family: helvetica;
 }
 
-h1, h2 {
+h1, h2, form {
 	/*font-family: helvetica;*/
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
+	color: #C8C5EF;
 }
 
-.tamastats { 
+
+.tamastats, #timer { 
 	display:flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -27,11 +29,34 @@ h1, h2 {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 500px 50px;
 	background-color: #6861C5;
+	overflow: hidden;
 
 
 	/*background-image: url('https://images.homedepot-static.com/productImages/fc3aa439-bd65-46bc-aba8-ece3fa3c4c23/svn/magnolia-home-by-joanna-gaines-wallpaper-me1515-64_400_compressed.jpg')*/
 	/*make transparent with https://css-tricks.com/snippets/css/transparent-background-images/*/
 }
+
+/*img, .slidein {
+	animation-name: bounce;
+	animation-duration: 1000ms;
+	animation-timing-function: linear;
+	animation-delay: 500ms;
+	animation-iteration-count: infinite;
+	animation-direction: normal;
+	animation-play-state: running;
+
+}
+
+@keyframes slidein {
+	from {
+		margin-left: 100%;
+		width: 150%;
+	}
+	to {
+		margin-left: 0%;
+		width: 100%;
+	}
+}*/
 
 .user-buttons {
 	display: flex;
