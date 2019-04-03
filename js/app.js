@@ -264,7 +264,7 @@ $light.on('click', () => {
 	}
 	else if (game.lighton === false ){
 		const $container = $('.container')
-		$container.css('background-color','green')
+		$container.css('background-color','#6861C5')
 		const $timer = $('#timer')
 		$timer.css('color','black')
 		game.decrementSleepiness();
