@@ -21,9 +21,13 @@ class Tamagotchi {
 	}
 }
 
+	
+
 const game = {
 	time: 0,
+	timer: null,
 	lighton: true,
+	isAlive: true,
 	startGame(){
 			
 			const tamagotchi = new Tamagotchi('Iko-kun');
@@ -66,49 +70,60 @@ const game = {
 		$lifestage.text(`${this.character.lifestage}`)
 	},
 	deathMethod (){
-		console.log('Tamagotchi is dead!!!');
-		clearInterval(this.time)
+		if(this.character.hunger === 10 || this.character.sleepiness === 10 || this.character.boredom === 10) {
+			this.isAlive = false
+		}
+
+	},
+	stopTimer() {
+		if(!this.isAlive)
+			clearInterval(this.timer)
 	},
 	startTimer() {
 		console.log('this.startTimer called')
-		this.time = setInterval(() => {
+		this.timer = setInterval(() => {
+			game.deathMethod();
+			game.stopTimer()
 			console.log('time started');
-			this.time++;
 
 			const $timer = $('#timer')
 			$timer.text(`${this.time}`)
 			// console.log(this);
 
-			if (this.time > 10){
+			if (this.time % 10 === 0){
 				this.character.hunger++
 				game.displayStats();
-				if (this.character.hunger > 10){
+				if (this.character.hunger === 10){
 					this.deathMethod();
+					return
 				}
 			}
-			if (this.time > 10){
+			if (this.time % 10 === 0){
 				this.character.sleepiness++
 				game.displayStats()
 				if(this.character.sleepiness > 10){
 					this.deathMethod();
+					return
 				}
 			}
-			if (this.time > 10){
+			if (this.time % 10 === 0){
 				this.character.boredom++
 				if (this.character.boredom > 10){
 					this.deathMethod();
+					// return
 				}
 			}
-			if (this.time > 10){
+			if (this.time % 10 === 0){
 				this.character.age++
 				game.displayStats();
 			}
-			if (this.time > 10){
+			if (this.time % 10 === 0){
 				this.character.lifestage++
 				game.displayStats();
 			}
+			this.time++;
 			
-		}, 1000)
+		}, 100)
 		// will initialize the stats including time
 	 // have one  let time be = setInterval(){
 		// timer ++
