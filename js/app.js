@@ -128,14 +128,14 @@ const game = {
 			if (this.time % 10 === 0){
 				this.character.sleepiness++
 				game.displayStats()
-				if(this.character.sleepiness > 10){
+				if(this.character.sleepiness === 10){
 					this.deathMethod();
 					return
 				}
 			}
 			if (this.time % 10 === 0){
 				this.character.boredom++
-				if (this.character.boredom > 10){
+				if (this.character.boredom === 10){
 					this.deathMethod();
 					// return
 				}
