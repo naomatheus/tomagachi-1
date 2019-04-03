@@ -1,23 +1,16 @@
 body {
 	background: linear-gradient(to right, #AAA6E0 10%, #4C4790); 
 	font-family: helvetica;
+	margin: 5 auto;
 }
 
-h1, h2, form {
+h1, h2 {
 	/*font-family: helvetica;*/
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
 	color: #C8C5EF;
 }
-
-#submit {
-	/*display: flex;
-	flex-direction: row;
-	justify-content: flex-end;*/
-	margin-right: 850px;
-}
-
 
 .tamastats, #timer { 
 	display:flex;

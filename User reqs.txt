@@ -17,7 +17,7 @@ Age -->
 
 <!-- Instatiate your Tomagotchi -->
 
-Display a character of your choice on the screen to represent your pet
+<!-- Display a character of your choice on the screen to represent your pet -->
 
 <!-- Display the following metrics for your pet: -->
 <!-- Hunger (1-10 scale)
@@ -27,7 +27,7 @@ Age -->
 <!-- Add buttons to the screen to feed your pet, turn off the lights, and play with your pet. -->
 
 <!-- create an event listener that turns off the light -->
-create a while light if off, sleepiness starts to decrement.
+<!-- create a while light if off, sleepiness starts to decrement. -->
 
 <!-- Add the ability to name your pet.
 Add the ability to name your pet from user input -->
@@ -37,5 +37,5 @@ Add the ability to name your pet from user input -->
 <!-- Increase your pet's age every x minutes -->
 <!-- Increase your pet's Hunger, Sleepiness, and Bored metrics on an interval of your choosing.
 You pet should die if Hunger, Boredom, or Sleepiness hits 10. -->
-Morph your pet at certain ages.
-Animate your pet across the screen while it's alive.
+<!-- Morph your pet at certain ages. -->
+<!-- Animate your pet across the screen while it's alive. -->
